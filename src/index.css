@@ -19,10 +19,11 @@
 
   body {
     @apply antialiased;
+    background-color: #020617; /* deep navy */
   }
 }
 
-/* Custom utility classes for shadcn/ui patterns */
+/* Custom animations and utilities for esports vibe */
 @layer utilities {
   .animate-in {
     animation-name: animateIn;
@@ -43,4 +44,33 @@
     --tw-exit-translate-x: initial;
     --tw-exit-translate-y: initial;
   }
+
+  .animate-gradient-slow {
+    animation: gradientShift 18s ease-in-out infinite;
+  }
+
+  .animate-sweep {
+    animation: sweep 2.8s linear infinite;
+  }
+}
+
+/* Keyframes */
+@keyframes gradientShift {
+  0% { filter: hue-rotate(0deg) saturate(1.1); transform: scale(1.02); }
+  25% { filter: hue-rotate(30deg) saturate(1.15); }
+  50% { filter: hue-rotate(60deg) saturate(1.2); transform: scale(1.03); }
+  75% { filter: hue-rotate(30deg) saturate(1.15); }
+  100% { filter: hue-rotate(0deg) saturate(1.1); transform: scale(1.02); }
+}
+
+@keyframes sweep {
+  0% { transform: translateX(-100%); opacity: 0; }
+  30% { opacity: 0.8; }
+  70% { opacity: 0.8; }
+  100% { transform: translateX(300%); opacity: 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-8px) translateX(4px); }
 }
